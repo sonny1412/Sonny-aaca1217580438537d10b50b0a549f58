@@ -1,7 +1,9 @@
 <?php 
 session_start();
 require 'db.php';
-
-$username = $_GET["id"];
-header("Location: ../front-end/index.html");
+if(isset($_SESSION["loguser"])) {
+	$userAktif = $_SESSION["loguser"];
+	header("Location: ../front-end/index.html");
+}
+// 
 ?>

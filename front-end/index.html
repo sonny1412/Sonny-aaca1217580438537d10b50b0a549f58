@@ -22,10 +22,10 @@ setInterval(
   $("#submit").click(function(){
   	$.ajax({
   		type: "POST",
-  		url: "../back-end/index.php",
+  		url: "../back-end/manage.php?act=cekstatus",
         success: function(result) {
                 //insert jurnal penjualan barang beserta depresiasi aset kendaraan
-                alert(result);
+                alert("Hello");
               }
   	})
   });

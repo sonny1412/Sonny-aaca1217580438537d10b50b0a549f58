@@ -10,12 +10,13 @@ if ($_GET["var"] == "login") {
     if (mysqli_num_rows($result)){
     	$row = mysqli_fetch_object($result);
 	    	if (trim($row->Password) == $upass) {
+	    	$_SESSION["loguser"] = $uname;
 	    	$date = date('Y-m-d H:i:s');
 	    	$sqlUpdateStatusLogin = "UPDATE user SET Status = ". 1 .", 	loginTime = '".$date. "'
 	    							WHERE username = '".$uname."'";
 	    	$result = mysqli_query($link,$sqlUpdateStatusLogin);
 	    	if ($result) {
-	    		header("Location: ../back-end/index.php?id=".$uname);
+	    		header("Location: ../back-end/index.php?");
 	    		}
     		}
     		else{
