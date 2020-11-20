@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>INDEX</title>
+</head>
+<body>
+	<button id="submit">HELLO</button>
+	<div id="timeShow"></div>
+</body>
+<script src="jquery/jquery.min.js"></script>
+<script>
+setInterval(
+   function(){
+   $.get("../back-end/showTime.php", function(Jam){
+            var xJam = Jam;
+            var x = document.getElementById('timeShow');
+                  x.innerHTML = xJam;
+      });
+   },1000);
+</script>
+<script type="text/javascript">
+  $("#submit").click(function(){
+  	$.ajax({
+  		type: "POST",
+  		url: "../back-end/index.php",
+        success: function(result) {
+                //insert jurnal penjualan barang beserta depresiasi aset kendaraan
+                alert(result);
+              }
+  	})
+  });
+
+</script>
+</html>
